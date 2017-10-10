@@ -13,7 +13,7 @@
 
 use App\Task;
 use Illuminate\Http\Request;
-use Illuminate\Validation\Validator;
+use Validator;
 
 Route::get('/', function () {
     $tasks = Task::orderBy('created_at', 'asc')->get();
