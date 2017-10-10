@@ -11,6 +11,7 @@
 |
 */
 
+use App\Task;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Validator;
 
@@ -32,7 +33,11 @@ Route::post('/task', function (Request $request) {
             ->withErrors($validator);
     }
 
-    // 建立該任務...
+    $task = new Task;
+    $task->name = $request->name;
+    $task->save();
+
+    return redirect('/');
 });
 /**
  * 刪除任務
